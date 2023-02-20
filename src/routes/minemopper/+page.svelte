@@ -46,10 +46,11 @@
     }
 
     async function handleSubmit(ev: Event) {
-        const form = ev.target as HTMLFormElement
+        const gameBody = document.getElementById('gameBody') as HTMLDivElement
         const gameContainer = document.getElementById(
             'gameContainer'
         ) as HTMLDivElement
+        const form = ev.target as HTMLFormElement
         const timer = document.getElementById('timeCount') as HTMLSpanElement
 
         const largura = form.elements.namedItem('w') as HTMLInputElement
@@ -61,6 +62,21 @@
         gameOpts.mines = parseInt(minas.value)
 
         gameReady = true
+
+        // clear the game container
+        gameBody.innerHTML = ''
+
+        gameContainer.classList.remove('hidden')
+        gameContainer.classList.add('flex')
+
+        for (let i = 0; i < gameOpts.height; i++) {
+            // add a poop emoji in a div into the game container
+            const row = document.createElement('div')
+            row.classList.add('text-lg')
+            row.innerText = '💩'
+
+            gameBody.appendChild(row)
+        }
     }
 
     let gameReady = false
@@ -217,40 +233,34 @@
         </button>
     {/if}
 
-    {#if gameReady}
+    <div
+        class="hidden max-w-xl w-full h-96 mt-8 p-4 flex-col bg-white opacity-50 rounded-2xl backdrop-blur-sm border-2 border-white text-black"
+        id="gameContainer"
+    >
         <div
-            class="max-w-xl w-full h-96 mt-8 p-4 flex flex-col bg-white opacity-50 rounded-2xl backdrop-blur-sm border-2 border-white text-black"
-            id="gameContainer"
+            id="gameHeader"
+            class="border-b-4 border-red-500"
         >
-            <div
-                id="gameHeader"
-                class="border-b-4 border-red-500"
-            >
-                <div class="flex">
-                    <div>
-                        <span class="text-2xl font-bold">Minas</span>
-                        <span
-                            class="text-2xl font-bold"
-                            id="mineCount">99</span
-                        >
-                    </div>
-                    <div class="ml-auto">
-                        <span class="text-2xl font-bold">Tempo</span>
-                        <span
-                            class="text-2xl font-bold"
-                            id="timeCount">00:00</span
-                        >
-                    </div>
+            <div class="flex">
+                <div>
+                    <span class="text-2xl font-bold">Minas</span>
+                    <span
+                        class="text-2xl font-bold"
+                        id="mineCount">99</span
+                    >
+                </div>
+                <div class="ml-auto">
+                    <span class="text-2xl font-bold">Tempo</span>
+                    <span
+                        class="text-2xl font-bold"
+                        id="timeCount">00:00</span
+                    >
                 </div>
             </div>
-            <div
-                id="gameBody"
-                class="flex flex-col m-auto"
-            >
-                <p class="text-xl">Largura: {gameOpts.width}</p>
-                <p class="text-xl">Altura: {gameOpts.height}</p>
-                <p class="text-xl">Minas: {gameOpts.mines}</p>
-            </div>
         </div>
-    {/if}
+        <div
+            id="gameBody"
+            class="flex m-auto"
+        />
+    </div>
 </div>
