@@ -1,32 +1,27 @@
 <script>
-    import '../app.css'
+	import '../app.postcss';
+	import backIcon from '$lib/back.svg';
+	import { page } from '$app/stores';
 </script>
 
-<header class="px-4">
-    <div class="flex justify-center border-b uppercase">
-        <h1 class="text-3xl py-4 font-extrabold">Super Pedrão Games</h1>
-    </div>
-</header>
+<div class="h-screen">
+	<header class="flex justify-center px-3 py-2 bg-purple-900 text-white relative">
+		{#if $page.route.id != '/'}
+			<a
+				href="/"
+				class="w-fit p-2 absolute left-4 top-2"
+			>
+				<img
+					src={backIcon}
+					alt="Back"
+				/>
+			</a>
+		{/if}
 
-<main class="min-h-screen px-8 mt-12">
-    <slot />
-</main>
+		<h1 class="text-xl py-2 font-bold">SUPER PEDRÃO GAMES</h1>
+	</header>
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
-    h1 {
-        font-family: 'Permanent Marker', cursive;
-        background: linear-gradient(
-            0deg,
-            rgba(112, 26, 117, 1) 0%,
-            rgba(112, 26, 117, 1) 41%,
-            rgba(255, 255, 255, 1) 50%,
-            rgba(56, 189, 248, 1) 60%,
-            rgba(56, 189, 248, 1) 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-</style>
+	<main>
+		<slot />
+	</main>
+</div>
