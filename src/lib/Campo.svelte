@@ -3,9 +3,26 @@
 	import { confetti } from '@neoconfetti/svelte';
 	import { createNew, updateStatus, stepInto, toggleFlag } from '$lib/game';
 
-	export let width = 9;
-	export let height = 9;
-	export let badCount = 10;
+	export let dificuldade = 'facil';
+
+	let width = 9;
+	let height = 9;
+	let badCount = 10;
+
+	switch (dificuldade) {
+		case 'facil':
+			break;
+		case 'medio':
+			width = 12;
+			height = 12;
+			badCount = 20;
+			break;
+		case 'dificil':
+			width = 16;
+			height = 16;
+			badCount = 40;
+			break;
+	}
 
 	let status = 'running';
 	$: status = updateStatus(cells);
@@ -49,7 +66,7 @@
 </dialog>
 
 <div
-	class="grid gap-1 p-6"
+	class="grid p-6"
 	style={`grid-template-columns: repeat(${width}, 2.5rem); grid-template-rows: repeat(${height}, 2.5rem);`}
 	on:contextmenu={(e) => e.preventDefault()}
 >

@@ -28,7 +28,7 @@
 		? 'bg-green-950'
 		: isBad
 		? 'bg-black'
-		: 'bg-green-300'} aspect-square w-10 text-black rounded-md font-bold select-none"
+		: 'bg-green-300'} aspect-square w-8 text-black rounded-md font-bold select-none"
 	on:click={step}
 	on:contextmenu={flag}
 >
