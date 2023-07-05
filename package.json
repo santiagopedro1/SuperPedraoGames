@@ -35,6 +35,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@neoconfetti/svelte": "^1.0.0"
+		"@neoconfetti/svelte": "^1.0.0",
+		"lucide-svelte": "^0.258.0"
 	}
 }
