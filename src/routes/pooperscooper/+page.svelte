@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import PooperScooper from '$lib/Campo.svelte';
+	import { ArrowLeft } from 'lucide-svelte';
 
 	let dificuldade: string;
 	let pronto = false;
@@ -69,13 +70,20 @@
 	</div>
 </dialog>
 
-<div
-	class="bg-green-600 flex flex-col items-center py-3 px-10"
-	style="min-height: calc(100vh - 60px)"
->
-	<h2 class="text-2xl">💩POOPER SCOOPER💩</h2>
+<div class="bg-green-600 min-h-screen">
+	<header class="flex items-center relative py-2 px-6">
+		<a
+			href="/"
+			class="py-4 px-2 absolute"
+		>
+			<ArrowLeft class="text-black w-8 h-8" />
+		</a>
+		<h2 class="text-2xl mx-auto">💩 POOPER SCOOPER 💩</h2>
+	</header>
 
 	{#if pronto}
-		<PooperScooper {dificuldade} />
+		<div class="flex justify-center">
+			<PooperScooper {dificuldade} />
+		</div>
 	{/if}
 </div>

@@ -15,7 +15,7 @@
 	<div class="py-2 px-4">
 		<h3 class="text-xl mb-4">{titulo}</h3>
 		<p class="mb-2">{subtitulo}</p>
-		<button class="py-2 px-4 bg-indigo-300 text-black rounded-md">
+		<button class="px-3 py-2 border-2">
 			<a
 				class="flex gap-2"
 				href={link}>Jogar <ArrowRight /></a
@@ -23,3 +23,9 @@
 		</button>
 	</div>
 </div>
+
+<style>
+	button {
+		border-image: linear-gradient(to right, #38bdf8, #eab308) 1;
+	}
+</style>
