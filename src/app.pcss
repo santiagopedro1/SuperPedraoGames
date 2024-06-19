@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 271 100% 14%;
+		--foreground: 210 20% 98%;
+
+		--card: 271 100% 14%;
+		--card-foreground: 210 20% 98%;
+
+		--popover: 271 100% 14%;
+		--popover-foreground: 210 20% 98%;
+
+		--primary: 272 63% 46%;
+		--primary-foreground: 210 20% 98%;
+
+		--secondary: 26 100% 50%;
+		--secondary-foreground: 210 20% 98%;
+
+		--muted: 26 100% 50%;
+		--muted-foreground: 217.9 10.6% 64.9%;
+
+		--accent: 194 85% 62%;
+		--accent-foreground: 210 20% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 20% 98%;
+
+		--border: 26 100% 50%;
+
+		--input: 26 100% 50%;
+
+		--ring: 263.4 70% 50.4%;
+
+		--radius: 0.5rem;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: 'Press Start 2P', cursive;
+	}
+}
