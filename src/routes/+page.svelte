@@ -75,9 +75,9 @@
 	</div>
 </header>
 
-<main class="grid place-items-center px-96 py-8">
+<main class="container space-y-8">
 	<h1 class="text-center text-4xl">Games</h1>
-	<div class="flex flex-wrap items-center justify-center gap-8 py-8">
+	<div class="grid grid-cols-2 gap-6">
 		{#each games as gameInfo}
 			<GameCard {gameInfo} />
 		{/each}

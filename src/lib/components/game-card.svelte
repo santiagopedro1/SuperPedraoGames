@@ -9,7 +9,7 @@
 	<Card.Header>
 		<Card.Title>{gameInfo.name}</Card.Title>
 	</Card.Header>
-	<Card.Content class="max-w-60">
+	<Card.Content>
 		<p>{gameInfo.desc}</p>
 	</Card.Content>
 	<Card.Footer class="justify-end">
